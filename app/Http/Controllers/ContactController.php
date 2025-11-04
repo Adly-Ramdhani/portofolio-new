@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Log;
 
+use Exception;
 use App\Models\Project;
 use App\Mail\ContactMail;
 use App\Models\Certificate;

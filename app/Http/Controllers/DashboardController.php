@@ -16,10 +16,7 @@ class DashboardController extends Controller
 
             return view('dashboard', compact('certificates', 'projects'));
         } catch (Exception $e) {
-            // Hindari redirect ke halaman yang sama
-            return response()->view('errors.general', [
-                'message' => 'Terjadi kesalahan: ' . $e->getMessage()
-            ], 500);
+            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
     }
 
