@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CertificateController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\CertificateController;
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/project/{id}', [DashboardController::class, 'show'])->name('project.show');
 Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 // Auth routes
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
@@ -18,9 +20,8 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // Routes untuk admin yang harus login
 Route::middleware(['auth'])->prefix('admin')->group(function () {
 
-    Route::get('/dashboard', function () {
-        return view('admin.index');
-    })->name('admin.dashboard');
+   Route::get('/dashboard', [ContactController::class, 'index'])->name('admin.dashboard');
+
 
     // Sertifikat
     Route::get('/sertifikat', [CertificateController::class, 'index'])->name('admin.sertifikat');

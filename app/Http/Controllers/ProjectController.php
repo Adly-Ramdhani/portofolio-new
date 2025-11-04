@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Exception;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Certificate;
 
 class ProjectController extends Controller
 {
@@ -15,12 +17,15 @@ class ProjectController extends Controller
     {
         try {
             $projects = Project::latest()->get();
-            return view('admin.projects.index', compact('projects'));
-        }catch (Exception $e) {
+            $totalProjects = Project::count();
+            $totalCertificates = Certificate::count();
+
+            return view('admin.projects.index', compact('projects', 'totalProjects', 'totalCertificates'));
+        } catch (Exception $e) {
             return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
+    }
 
-   }
 
     /**
      * Show the form for creating a new resource.

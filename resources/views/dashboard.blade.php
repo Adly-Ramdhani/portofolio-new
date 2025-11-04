@@ -194,18 +194,7 @@
         <div class="col-lg-6 col-md-10 text-center text-lg-start mx-auto">
           <div class="main_title">
           <h3 class="intro" data-aos="fade-right" data-aos-delay="300" data-aos-duration="1000">
-              Hallo, saya <span style="color:#7f3cff">A</span>
-              <span style="color:#9850ff">d</span>
-              <span style="color:#b15fff">l</span>
-              <span style="color:#c8aaff">y</span>
-              <span style="color:#4ac6ff"> R</span>
-              <span style="color:#3db2ff">a</span>
-              <span style="color:#2f9eff">m</span>
-              <span style="color:#2f9eff">d</span>
-              <span style="color:#2f9eff">h</span>
-              <span style="color:#2f9eff">a</span>
-              <span style="color:#2f9eff">n</span>
-    <span style="color:#2f9eff">i</span>
+              <span>Hallo, saya Adly Ramdhani</span>
             </h3>
             <p class="description" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">
               Seorang lulusan jurusan Pengembangan Perangkat Lunak dan Gim yang tertarik dalam pengembangan Fullstack. 
@@ -282,7 +271,7 @@
       <div class="tech-card dbeaver"><iconify-icon icon="simple-icons:dbeaver" width="48"></iconify-icon></div>
       <div class="tech-card php"><iconify-icon icon="logos:php" width="48"></iconify-icon></div>
       <div class="tech-card csharp"><iconify-icon icon="logos:c-sharp" width="48"></iconify-icon></div>
-      <div class="tech-card docker"><iconify-icon icon="logos:docker-icon" width="48"></iconify-icon></div>
+      <div class="tech-c  "><iconify-icon icon="logos:docker-icon" width="48"></iconify-icon></div>
       <div class="tech-card git"><iconify-icon icon="logos:git-icon" width="48"></iconify-icon></div>
       <div class="tech-card react"><iconify-icon icon="logos:react" width="46"></iconify-icon></div>
       <div class="tech-card composer"><iconify-icon icon="logos:composer" width="44"></iconify-icon></div>
@@ -353,21 +342,25 @@
 
 
 
-  <div id="certificates-tab" class="tab-content" style="display: none;">
-    @isset($certificates)
-    <div class="certificates-slider" data-aos="fade-up" data-aos-delay="700">
-          @forelse ($certificates as $certificate)
+    <div id="certificates-tab" class="tab-content" style="display: none;">
+      @isset($certificates)
+        <div class="certificates-swiper" data-aos="fade-up" data-aos-delay="700">
+          <div class="certificates-slider">
+            @forelse ($certificates as $certificate)
               <div class="certificates-card" data-aos="zoom-in" data-aos-delay="400">
-                  <div class="certificates-image">
-                      <img src="{{ asset('storage/' . $certificate->image) }}" alt="certificate">
-                  </div>
+                <div class="certificates-image">
+                  <img src="{{ asset('storage/' . $certificate->image) }}" alt="certificate">
+                </div>
               </div>
-          @empty
+            @empty
               <p class="text-secondary">Belum ada sertifikat.</p>
-          @endforelse
+            @endforelse
+          </div>
+        </div>
+      @endisset
     </div>
-    @endisset
-  </div>
+
+
 
 
 
@@ -403,7 +396,7 @@
 
       <!-- Kanan: Form Kirim Pesan -->
       <div class="col-md-6">
-        <form action="" method="POST" class="d-flex flex-column gap-3">
+        <form action="{{ route('contact.store') }}" method="POST" class="d-flex flex-column gap-3">
             @csrf
 
             <div class="d-flex flex-column">
@@ -465,6 +458,7 @@
 
 <!-- add bootstrap bundle so toggler works on mobile -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <!-- include AOS JS and init so data-aos elements reveal correctly on desktop -->
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
@@ -500,6 +494,28 @@ tabs.forEach(tab => {
 
 
 <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+
+@if(session('success'))
+<script>
+    Swal.fire({
+        icon: 'success',
+        title: 'Berhasil!',
+        text: '{{ session('success') }}',
+        confirmButtonText: 'OK'
+    })
+</script>
+@endif
+
+@if(session('error'))
+<script>
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops!',
+        text: '{{ session('error') }}',
+        confirmButtonText: 'OK'
+    })
+</script>
+@endif
 
 <script>
   (function () {

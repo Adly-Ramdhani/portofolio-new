@@ -9,19 +9,17 @@
             <p>Welcome, {{ Auth::user()->name ?? 'Admin' }} 👋</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-[#1e293b] p-6 rounded-xl shadow hover:shadow-lg transition">
-                <h2 class="text-lg font-bold text-indigo-400 mb-2">Total Users</h2>
-                <p class="text-gray-400">1,245 registered users</p>
-            </div>
-            <div class="bg-[#1e293b] p-6 rounded-xl shadow hover:shadow-lg transition">
-                <h2 class="text-lg font-bold text-indigo-400 mb-2">Sales</h2>
-                <p class="text-gray-400">$23,500 this month</p>
-            </div>
-            <div class="bg-[#1e293b] p-6 rounded-xl shadow hover:shadow-lg transition">
-                <h2 class="text-lg font-bold text-indigo-400 mb-2">Active Sessions</h2>
-                <p class="text-gray-400">87 users online</p>
-            </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-[#1e293b] p-6 rounded-xl shadow hover:shadow-lg transition">
+            <h2 class="text-lg font-bold text-indigo-400 mb-2">Total Projects</h2>
+            <p class="text-gray-400">{{ $totalProjects }} projects</p>
         </div>
+        <div class="bg-[#1e293b] p-6 rounded-xl shadow hover:shadow-lg transition">
+            <h2 class="text-lg font-bold text-indigo-400 mb-2">Total Certificates</h2>
+            <p class="text-gray-400">{{ $totalCertificates }} certificates</p>
+        </div>
+
+    </div>
+
 
 @endsection
