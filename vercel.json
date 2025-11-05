@@ -8,6 +8,8 @@
   "routes": [
     { "src": "/(.*)", "dest": "/api/index.php" }
   ],
+  "buildCommand": "composer install --no-dev --optimize-autoloader && npm install && npm run build",
+  "outputDirectory": "public",
   "env": {
     "APP_ENV": "production",
     "APP_DEBUG": "false",
@@ -21,17 +23,13 @@
     "DB_USERNAME": "portofolio_swingsoon",
     "DB_PASSWORD": "e713b530c7c7e6b9c7136afa1cc64aa2a486067a",
 
+    "CACHE_DRIVER": "array",
+    "SESSION_DRIVER": "cookie",
+    "LOG_CHANNEL": "stderr",
+    "VIEW_COMPILED_PATH": "/tmp",
     "APP_CONFIG_CACHE": "/tmp/config.php",
-    "APP_EVENTS_CACHE": "/tmp/events.php",
     "APP_PACKAGES_CACHE": "/tmp/packages.php",
     "APP_ROUTES_CACHE": "/tmp/routes.php",
-    "APP_SERVICES_CACHE": "/tmp/services.php",
-    "VIEW_COMPILED_PATH": "/tmp",
-
-    "CACHE_DRIVER": "array",
-    "LOG_CHANNEL": "stderr",
-    "SESSION_DRIVER": "cookie"
-  },
-  "buildCommand": "npm install && npm run build",
-  "outputDirectory": "public"
+    "APP_SERVICES_CACHE": "/tmp/services.php"
+  }
 }
