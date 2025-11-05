@@ -11,7 +11,7 @@
   "buildCommand": "npm install",
   "outputDirectory": "public",
   "env": {
-    "APP_ENV": "production",
+    "APP_ENV": "local",
     "APP_DEBUG": "false",
     "APP_URL": "https://www.adly.my.id",
     "APP_KEY": "base64:WosRJO97r2z0Uwh10fg8AbYYs/9eNKhC4zJQVh8W6KA=",
