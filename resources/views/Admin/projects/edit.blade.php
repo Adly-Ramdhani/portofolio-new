@@ -38,7 +38,7 @@
         <div class="mt-4">
             <label class="text-gray-300">Gambar Saat Ini</label><br>
             @if($project->image)
-                <img src="{{ asset('storage/' . $project->image) }}" alt="Gambar Projek" class="w-32 h-32 object-cover rounded mb-2">
+                <img src="{{ $project->image }}" alt="Gambar Projek" class="w-32 h-32 object-cover rounded mb-2">
             @else
                 <p class="text-gray-400 text-sm">Belum ada gambar.</p>
             @endif

@@ -7,6 +7,7 @@ use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Certificate;
+use Cloudinary\Api\Upload\UploadApi;
 
 class ProjectController extends Controller
 {
@@ -38,39 +39,49 @@ class ProjectController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
     public function store(Request $request)
     {
         try {
-        
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'role' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'tech_stack' => 'nullable|array',
-            'key_features' => 'nullable|array',
-            'github_link'  => 'nullable|url',
-        ]);
+            // ✅ Validasi input
+            $request->validate([
+                'title' => 'required|string|max:255',
+                'role' => 'required|string|max:255',
+                'description' => 'nullable|string',
+                'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
+                'tech_stack' => 'nullable|array',
+                'key_features' => 'nullable|array',
+                'github_link' => 'nullable|url',
+            ]);
 
-        $path = $request->hasFile('image')
-            ? $request->file('image')->store('projects', 'public')
-            : null;
+            // ✅ Upload ke Cloudinary
+            $upload = (new UploadApi())->upload(
+                $request->file('image')->getRealPath(),
+                ['folder' => 'portfolio_projects'] // Folder Cloudinary
+            );
 
-        Project::create([
-            'title' => $request->title,
-            'role' => $request->role,
-            'description' => $request->description,
-            'image' => $path,
-            'tech_stack' => $request->tech_stack,
-            'key_features' => $request->key_features,
-            'github_link' => $request->github_link
-        ]);
+            // ✅ Ambil URL hasil upload
+            $imageUrl = $upload['secure_url'];
 
-        return redirect()->route('admin.projects.index')->with('success', 'Project berhasil ditambahkan.');
+            // ✅ Simpan ke database
+            Project::create([
+                'title' => $request->title,
+                'role' => $request->role,
+                'description' => $request->description,
+                'image' => $imageUrl,
+                'tech_stack' => $request->tech_stack ?? [],
+                'key_features' => $request->key_features ?? [],
+                'github_link' => $request->github_link,
+            ]);
+
+            return redirect()->route('admin.projek')
+                            ->with('success', 'Project berhasil ditambahkan!');
         } catch (Exception $e) {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk menambahkan project.');
+            return redirect()->back()
+                            ->with('error', 'Gagal menambahkan project: ' . $e->getMessage());
         }
     }
+
 
 
     /**

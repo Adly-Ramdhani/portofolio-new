@@ -70,7 +70,7 @@
             <!-- Kanan: Gambar Preview -->
             <div class="col-lg-5 text-center">
                 @if($projects->image)
-                    <img src="{{ asset('storage/' . $projects->image) }}"
+                    <img src="{{  $projects->image}}"
                          alt="{{ $projects->title }}"
                          class="img-fluid rounded-4 border border-secondary shadow mb-4"
                          style="max-height: 320px; object-fit: cover;">

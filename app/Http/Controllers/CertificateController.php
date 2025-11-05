@@ -37,30 +37,30 @@ class CertificateController extends Controller
      */
 
 
-public function store(Request $request)
-{
-    $request->validate([
-        'title' => 'nullable|string|max:255',
-        'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
-    ]);
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'nullable|string|max:255',
+            'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
+        ]);
 
-    // ✅ Upload file ke folder Cloudinary
-    $upload = (new UploadApi())->upload(
-        $request->file('image')->getRealPath(),
-        ['folder' => 'portfolio_certificates']
-    );
+        // ✅ Upload file ke folder Cloudinary
+        $upload = (new UploadApi())->upload(
+            $request->file('image')->getRealPath(),
+            ['folder' => 'portfolio_certificates']
+        );
 
-    // ✅ Ambil URL aman
-    $imageUrl = $upload['secure_url'];
+        // ✅ Ambil URL aman
+        $imageUrl = $upload['secure_url'];
 
-    // Simpan ke database
-    Certificate::create([
-        'title' => $request->title,
-        'image' => $imageUrl,
-    ]);
+        // Simpan ke database
+        Certificate::create([
+            'title' => $request->title,
+            'image' => $imageUrl,
+        ]);
 
-    return back()->with('success', 'Sertifikat berhasil diupload!');
-}
+        return back()->with('success', 'Sertifikat berhasil diupload!');
+    }
 
     /**
      * Display the specified resource.
@@ -91,12 +91,30 @@ public function store(Request $request)
      */
     public function destroy(Certificate $certificate)
     {
-        if ($certificate->image) {
-            Storage::disk('public')->delete($certificate->image);
-        }
-        $certificate->delete();
+        try {
+            if ($certificate->image) {
+                // 🔍 Ambil public_id dari URL Cloudinary
+                // Contoh URL:
+                // https://res.cloudinary.com/dgg5rpo0j/image/upload/v1734567890/portfolio_certificates/abcd1234.jpg
+                $urlPath = parse_url($certificate->image, PHP_URL_PATH);
+                $filename = pathinfo($urlPath, PATHINFO_FILENAME); // abcd1234
+                $publicId = 'portfolio_certificates/' . $filename;
 
-        return redirect()->route('admin.sertifikat')->with('success', 'Sertifikat berhasil dihapus!');
+                // 🗑️ Hapus dari Cloudinary
+                (new UploadApi())->destroy($publicId);
+            }
+
+            // 🗃️ Hapus data dari database
+            $certificate->delete();
+
+            return redirect()->route('admin.sertifikat')
+                ->with('success', 'Sertifikat berhasil dihapus!');
+        } catch (\Exception $e) {
+            \Log::error('Gagal menghapus sertifikat: ' . $e->getMessage());
+            return redirect()->route('admin.sertifikat')
+                ->with('error', 'Terjadi kesalahan saat menghapus sertifikat.');
+        }
     }
+
 
 }

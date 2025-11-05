@@ -323,7 +323,7 @@
               data-aos-delay="{{ 200 + ($index * 100) }}">
               
             <div class="project-image">
-              <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}">
+              <img src="{{ $project->image }}" alt="{{ $project->title }}">
             </div>
 
             <div class="project-content">

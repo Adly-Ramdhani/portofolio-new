@@ -72,7 +72,7 @@
         @forelse($projects as $project)
             <div class="bg-[#1e293b] rounded-xl p-3">
                 @if($project->image)
-                    <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}" class="w-full h-40 object-cover rounded mb-3">
+                    <img src="{{ $project->image }}" alt="{{ $project->title }}" class="w-full h-40 object-cover rounded mb-3">
                 @endif
                 <h3 class="text-lg font-semibold text-white">{{ $project->title }}</h3>
                 <p class="text-sm text-gray-400 mb-2">{{ $project->role }}</p>
