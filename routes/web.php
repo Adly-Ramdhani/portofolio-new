@@ -30,9 +30,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
     Route::middleware(['auth'])->prefix('admin')->group(function () {
 
-    Route::get('/dashboard', function () {
-        return view('admin.index');
-    })->name('admin.dashboard');
+    // Route::get('/dashboard', function () {
+    //     return view('admin.index');
+    // })->name('admin.dashboard');
 
     // Projek
     Route::get('/projek', [ProjectController::class, 'index'])->name('admin.projek');
@@ -44,10 +44,10 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
 
     // Sertifikat
-    Route::get('/sertifikat', [CertificateController::class, 'index'])->name('admin.sertifikat');
-    Route::post('/sertifikat', [CertificateController::class, 'store'])->name('certificates.store');
-    Route::delete('/sertifikat/{certificate}', [CertificateController::class, 'destroy'])->name('certificates.destroy');
-});
+//     Route::get('/sertifikat', [CertificateController::class, 'index'])->name('admin.sertifikat');
+//     Route::post('/sertifikat', [CertificateController::class, 'store'])->name('certificates.store');
+//     Route::delete('/sertifikat/{certificate}', [CertificateController::class, 'destroy'])->name('certificates.destroy');
+ });
 
 
 });

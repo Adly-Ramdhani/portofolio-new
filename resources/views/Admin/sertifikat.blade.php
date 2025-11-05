@@ -54,9 +54,10 @@
     <div class="certificate-list grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
         @forelse ($certificates as $certificate)
             <div class="bg-[#1e293b] p-3 rounded-lg shadow relative">
-                <img src="{{ asset('storage/' . $certificate->image) }}"
-                     alt="{{ $certificate->title ?? 'Certificate' }}" 
-                     class="w-full h-auto rounded-lg mb-2">
+                <img src="{{ $certificate->image }}"
+                    alt="{{ $certificate->title ?? 'Certificate' }}" 
+                    class="w-full h-auto rounded-lg mb-2">
+
                 
                 @if($certificate->title)
                     <p class="text-gray-300 text-sm text-center">{{ $certificate->title }}</p>

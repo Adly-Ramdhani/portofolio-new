@@ -349,7 +349,7 @@
             @forelse ($certificates as $certificate)
               <div class="certificates-card" data-aos="zoom-in" data-aos-delay="400">
                 <div class="certificates-image">
-                  <img src="{{ asset('storage/' . $certificate->image) }}" alt="certificate">
+                  <img src="{{ $certificate->image }}" alt="certificate">
                 </div>
               </div>
             @empty

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Storage;
 use App\Models\Certificate;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Cloudinary\Api\Upload\UploadApi;
+use Illuminate\Container\Attributes\Storage;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+
 
 class CertificateController extends Controller
 {
@@ -33,27 +35,32 @@ class CertificateController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        $request->validate([
-            'title' => 'nullable|string|max:255',
-            'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
-        ]);
 
-        // Upload ke Cloudinary
-        $uploadedFileUrl = Cloudinary::upload($request->file('image')->getRealPath(), [
-            'folder' => 'certificates'
-        ])->getSecurePath();
 
-        // Simpan ke database
-        Certificate::create([
-            'title' => $request->title,
-            'image' => $uploadedFileUrl,
-        ]);
+public function store(Request $request)
+{
+    $request->validate([
+        'title' => 'nullable|string|max:255',
+        'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
+    ]);
 
-        return back()->with('success', 'Sertifikat berhasil diupload!');
-    }
+    // ✅ Upload file ke folder Cloudinary
+    $upload = (new UploadApi())->upload(
+        $request->file('image')->getRealPath(),
+        ['folder' => 'portfolio_certificates']
+    );
 
+    // ✅ Ambil URL aman
+    $imageUrl = $upload['secure_url'];
+
+    // Simpan ke database
+    Certificate::create([
+        'title' => $request->title,
+        'image' => $imageUrl,
+    ]);
+
+    return back()->with('success', 'Sertifikat berhasil diupload!');
+}
 
     /**
      * Display the specified resource.
