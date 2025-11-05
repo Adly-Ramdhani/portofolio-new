@@ -8,7 +8,7 @@
   "routes": [
     { "src": "/(.*)", "dest": "/api/index.php" }
   ],
-  "buildCommand": " npm install && npm run dev ",
+  "buildCommand": " npm install && npm run build ",
   "outputDirectory": "public",
   "env": {
     "APP_ENV": "production",
