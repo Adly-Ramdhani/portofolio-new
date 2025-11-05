@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Exception;
 use App\Models\Project;
+use App\Models\Certificate;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Certificate;
 use Cloudinary\Api\Upload\UploadApi;
 
 class ProjectController extends Controller
@@ -54,16 +55,16 @@ class ProjectController extends Controller
                 'github_link' => 'nullable|url',
             ]);
 
-            // ✅ Upload ke Cloudinary
+           
             $upload = (new UploadApi())->upload(
                 $request->file('image')->getRealPath(),
                 ['folder' => 'portfolio_projects'] // Folder Cloudinary
             );
 
-            // ✅ Ambil URL hasil upload
+           
             $imageUrl = $upload['secure_url'];
 
-            // ✅ Simpan ke database
+            
             Project::create([
                 'title' => $request->title,
                 'role' => $request->role,
@@ -111,6 +112,8 @@ class ProjectController extends Controller
     /**
      * Update the specified resource in storage.
      */
+
+
     public function update(Request $request, $id)
     {
         try {
@@ -120,43 +123,71 @@ class ProjectController extends Controller
                 'title' => 'required|string|max:255',
                 'role' => 'required|string|max:255',
                 'description' => 'nullable|string',
-                'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+                'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
                 'tech_stack' => 'nullable|array',
                 'key_features' => 'nullable|array',
                 'github_link'  => 'nullable|url',
             ]);
 
             if ($request->hasFile('image')) {
-                $path = $request->file('image')->store('projects', 'public');
-                $project->image = $path;
+
+                if ($project->image) {
+                    $publicId = pathinfo(parse_url($project->image, PHP_URL_PATH), PATHINFO_FILENAME);
+                    $folder = 'portfolio_projects/' . $publicId;
+                    (new UploadApi())->destroy($folder);
+                }
+
+                $upload = (new UploadApi())->upload(
+                    $request->file('image')->getRealPath(),
+                    ['folder' => 'portfolio_projects']
+                );
+
+                $project->image = $upload['secure_url'];
             }
+            $project->update([
+                'title' => $request->title,
+                'role' => $request->role,
+                'description' => $request->description,
+                'tech_stack' => $request->tech_stack ?? [],
+                'key_features' => $request->key_features ?? [],
+                'github_link' => $request->github_link,
+            ]);
 
-            $project->title = $request->title;
-            $project->role = $request->role;
-            $project->description = $request->description;
-            $project->tech_stack = $request->tech_stack;
-            $project->key_features = $request->key_features;
-            $project->github_link = $request->github_link;
-            $project->save();
-
-            return redirect()->route('admin.projek')->with('success', 'Projek berhasil diperbarui.');
+            return redirect()->route('admin.projek')
+                            ->with('success', 'Projek berhasil diperbarui!');
         } catch (Exception $e) {
-            return redirect()->back()->with('error', 'Gagal memperbarui projek: ' . $e->getMessage());
+            return redirect()->back()
+                            ->with('error', 'Gagal memperbarui projek: ' . $e->getMessage());
         }
     }
+
 
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Project $project)
+    public function destroy($id)
     {
-      try {
+        try {
+            $project = Project::findOrFail($id);
+
+           
+            if ($project->image) {
+               
+                $urlPath = parse_url($project->image, PHP_URL_PATH);
+                $relativePath = Str::after($urlPath, '/upload/');
+                $publicId = preg_replace('/\.[^.]+$/', '', $relativePath);
+
+                (new UploadApi())->destroy($publicId);
+            }
+
+    
             $project->delete();
-            return to_route('admin.projek')->with('success', 'Projek berhasil dihapus.');
-        } catch (\Exception $e) {
+
+            return to_route('admin.projek')->with('success', 'Projek berhasil dihapus dari database & Cloudinary.');
+        } catch (Exception $e) {
             return to_route('admin.projek')->with('error', 'Gagal menghapus projek: ' . $e->getMessage());
         }
-
     }
+
 }
