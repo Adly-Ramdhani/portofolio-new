@@ -8,7 +8,7 @@
   "routes": [
     { "src": "/(.*)", "dest": "/api/index.php" }
   ],
-  "buildCommand": " npm run build",
+  "buildCommand": " npm install && npm run build && php artisan optimize",
   "outputDirectory": "public",
   "env": {
     "APP_ENV": "production",
