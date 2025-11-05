@@ -6,10 +6,17 @@
     }
   },
   "routes": [
-    { "src": "/build/(.*)", "dest": "/build/$1" },
-    { "src": "/(.*)", "dest": "/public/index.php" }
+    {
+      "src": "/build/(.*)",
+      "headers": { "Cache-Control": "public, max-age=31536000, immutable" },
+      "dest": "/public/build/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/public/index.php"
+    }
   ],
-  "buildCommand": " npm install && npm run build ",
+  "buildCommand": "npm install && npm run build",
   "outputDirectory": "public",
   "env": {
     "APP_ENV": "production",
