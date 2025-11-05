@@ -32,6 +32,6 @@
     "LOG_CHANNEL": "stderr",
     "SESSION_DRIVER": "cookie"
   },
-  "buildCommand": "composer install --no-dev --optimize-autoloader && npm ci && npm run build",
+  "buildCommand": "npm run dev",
   "outputDirectory": "public"
 }
