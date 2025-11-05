@@ -6,7 +6,8 @@
     }
   },
   "routes": [
-    { "src": "/(.*)", "dest": "/api/index.php" }
+    { "src": "/build/(.*)", "dest": "/build/$1" },
+    { "src": "/(.*)", "dest": "/public/index.php" }
   ],
   "buildCommand": " npm install && npm run build ",
   "outputDirectory": "public",
