@@ -11,9 +11,9 @@
   "buildCommand": "npm install",
   "outputDirectory": "public",
   "env": {
-    "APP_ENV": "local",
+    "APP_ENV": "production",
     "APP_DEBUG": "false",
-    "APP_URL": "https://www.adly.my.id",
+    "APP_URL": "https://www.adly.my.id/",
     "APP_KEY": "base64:WosRJO97r2z0Uwh10fg8AbYYs/9eNKhC4zJQVh8W6KA=",
 
     "DB_CONNECTION": "pgsql",
@@ -23,9 +23,15 @@
     "DB_USERNAME": "portofolio_swingsoon",
     "DB_PASSWORD": "e713b530c7c7e6b9c7136afa1cc64aa2a486067a",
 
+    "APP_CONFIG_CACHE": "/tmp/config.php",
+    "APP_EVENTS_CACHE": "/tmp/events.php",
+    "APP_PACKAGES_CACHE": "/tmp/packages.php",
+    "APP_ROUTES_CACHE": "/tmp/routes.php",
+    "APP_SERVICES_CACHE": "/tmp/services.php",
+    "VIEW_COMPILED_PATH": "/tmp",
+
     "CACHE_DRIVER": "array",
-    "SESSION_DRIVER": "cookie",
     "LOG_CHANNEL": "stderr",
-    "VIEW_COMPILED_PATH": "/tmp"
+    "SESSION_DRIVER": "cookie"
   }
 }
