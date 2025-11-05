@@ -11,7 +11,7 @@
   "env": {
     "APP_ENV": "production",
     "APP_DEBUG": "false",
-    "APP_URL": "https://www.adly.my.id/",
+    "APP_URL": "https://www.adly.my.id",
     "APP_KEY": "base64:WosRJO97r2z0Uwh10fg8AbYYs/9eNKhC4zJQVh8W6KA=",
 
     "DB_CONNECTION": "pgsql",
@@ -30,8 +30,10 @@
 
     "CACHE_DRIVER": "array",
     "LOG_CHANNEL": "stderr",
-    "SESSION_DRIVER": "cookie"
+    "SESSION_DRIVER": "cookie",
+    
+    "LARAVEL_BYPASS_ENV_CHECK": "1"
   },
-  "buildCommand": "npm run dev",
+  "buildCommand": "npm run build",
   "outputDirectory": "public"
 }
