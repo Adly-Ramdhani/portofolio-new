@@ -8,6 +8,8 @@
   "routes": [
     { "src": "/(.*)", "dest": "/api/index.php" }
   ],
+  "buildCommand": "npm install && npm run build",
+  "outputDirectory": "public",
   "env": {
     "APP_ENV": "production",
     "APP_DEBUG": "false",
@@ -31,9 +33,6 @@
     "CACHE_DRIVER": "array",
     "LOG_CHANNEL": "stderr",
     "SESSION_DRIVER": "cookie",
-    
     "LARAVEL_BYPASS_ENV_CHECK": "1"
-  },
-  "buildCommand": "npm run build",
-  "outputDirectory": "public"
+  }
 }
