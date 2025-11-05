@@ -5,13 +5,16 @@
       "runtime": "vercel-php@0.7.4"
     }
   },
-   "routes": [
+  "builds": [
+    { "src": "package.json", "use": "@vercel/static-build", "config": { "distDir": "public" } }
+  ],
+  "routes": [
     { "src": "/(.*)", "dest": "/api/index.php" }
   ],
   "env": {
     "APP_ENV": "production",
-    "APP_DEBUG": "true",
-    "APP_URL": "https://portofolio.vercel.app",
+    "APP_DEBUG": "false",
+    "APP_URL": "https://www.adly.my.id/",
     "APP_KEY": "base64:WosRJO97r2z0Uwh10fg8AbYYs/9eNKhC4zJQVh8W6KA=",
 
     "DB_CONNECTION": "pgsql",
@@ -31,5 +34,6 @@
     "CACHE_DRIVER": "array",
     "LOG_CHANNEL": "stderr",
     "SESSION_DRIVER": "cookie"
-  }
+  },
+  "buildCommand": "composer install --no-dev --optimize-autoloader && npm ci && npm run build"
 }
