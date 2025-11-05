@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Storage;
 use App\Models\Certificate;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class CertificateController extends Controller
 {
@@ -38,13 +40,15 @@ class CertificateController extends Controller
             'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
-        $file = $request->file('image');
-        $filename = time() . '_' . $file->getClientOriginalName();
-        $path = $file->storeAs('certificates', $filename, 'public');
+        // Upload ke Cloudinary
+        $uploadedFileUrl = Cloudinary::upload($request->file('image')->getRealPath(), [
+            'folder' => 'certificates'
+        ])->getSecurePath();
 
+        // Simpan ke database
         Certificate::create([
             'title' => $request->title,
-            'image' => $path,
+            'image' => $uploadedFileUrl,
         ]);
 
         return back()->with('success', 'Sertifikat berhasil diupload!');

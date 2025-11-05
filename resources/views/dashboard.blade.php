@@ -271,7 +271,7 @@
       <div class="tech-card dbeaver"><iconify-icon icon="simple-icons:dbeaver" width="48"></iconify-icon></div>
       <div class="tech-card php"><iconify-icon icon="logos:php" width="48"></iconify-icon></div>
       <div class="tech-card csharp"><iconify-icon icon="logos:c-sharp" width="48"></iconify-icon></div>
-      <div class="tech-c  "><iconify-icon icon="logos:docker-icon" width="48"></iconify-icon></div>
+      <div class="tech-card docker"><iconify-icon icon="logos:docker-icon" width="48"></iconify-icon></div>
       <div class="tech-card git"><iconify-icon icon="logos:git-icon" width="48"></iconify-icon></div>
       <div class="tech-card react"><iconify-icon icon="logos:react" width="46"></iconify-icon></div>
       <div class="tech-card composer"><iconify-icon icon="logos:composer" width="44"></iconify-icon></div>
