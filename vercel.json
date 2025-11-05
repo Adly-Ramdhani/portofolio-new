@@ -5,9 +5,6 @@
       "runtime": "vercel-php@0.7.4"
     }
   },
-  "builds": [
-    { "src": "package.json", "use": "@vercel/static-build", "config": { "distDir": "public" } }
-  ],
   "routes": [
     { "src": "/(.*)", "dest": "/api/index.php" }
   ],
@@ -35,5 +32,6 @@
     "LOG_CHANNEL": "stderr",
     "SESSION_DRIVER": "cookie"
   },
-  "buildCommand": "composer install --no-dev --optimize-autoloader && npm ci && npm run build"
+  "buildCommand": "composer install --no-dev --optimize-autoloader && npm ci && npm run build",
+  "outputDirectory": "public"
 }
