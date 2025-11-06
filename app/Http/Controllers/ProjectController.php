@@ -17,15 +17,11 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        try {
             $projects = Project::latest()->get();
             $totalProjects = Project::count();
             $totalCertificates = Certificate::count();
 
             return view('admin.projects.index', compact('projects', 'totalProjects', 'totalCertificates'));
-        } catch (Exception $e) {
-            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
-        }
     }
 
 

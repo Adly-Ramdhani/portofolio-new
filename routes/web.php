@@ -22,19 +22,18 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
    Route::get('/dashboard', [ContactController::class, 'index'])->name('admin.dashboard');
 
+    // Project
+    Route::get('/project', [ProjectController::class, 'index'])->name('admin.project');Route::get('/projek', [ProjectController::class, 'index'])->name('admin.projek');
+    Route::post('/projek', [ProjectController::class, 'store'])->name('projects.store');
+    Route::get('/projek/edit/{id}', [ProjectController::class, 'edit'])->name('projects.edit');
+    Route::put('/projek/{id}', [ProjectController::class, 'update'])->name('projects.update');  
+    Route::delete('/projek/{id}', [ProjectController::class, 'destroy'])->name('projects.destroy');
 
     // Sertifikat
     Route::get('/sertifikat', [CertificateController::class, 'index'])->name('admin.sertifikat');
     Route::post('/sertifikat', [CertificateController::class, 'store'])->name('certificates.store');
     Route::delete('/sertifikat/{certificate}', [CertificateController::class, 'destroy'])->name('certificates.destroy');
-
-
-    // Projek
-    Route::get('/projek', [ProjectController::class, 'index'])->name('admin.projek');
-    Route::post('/projek', [ProjectController::class, 'store'])->name('projects.store');
-    Route::get('/projek/edit/{id}', [ProjectController::class, 'edit'])->name('projects.edit');
-    Route::put('/projek/{id}', [ProjectController::class, 'update'])->name('projects.update');  
-    Route::delete('/projek/{id}', [ProjectController::class, 'destroy'])->name('projects.destroy');
+    
 });
 
 
