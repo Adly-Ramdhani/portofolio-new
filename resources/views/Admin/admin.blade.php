@@ -6,13 +6,21 @@
     <title>Admin Dashboard</title>
     
     {{-- Local pakai Vite dev server --}}
-   @if (app()->environment('local'))
+    @php
+        $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
+        $adminCss = $manifest['resources/css/admin.css']['file'] ?? null;
+    @endphp
+
+    @if (app()->environment('local'))
         {{-- Local pakai Vite dev server --}}
         @vite(['resources/css/admin.css'])
     @else
         {{-- Production pakai hasil build static --}}
-       <link rel="stylesheet" href="{{ asset('build/assets/admin-DX5FUotB.css') }}">
+        @if ($adminCss)
+            <link rel="stylesheet" href="{{ asset('build/' . $adminCss) }}">
+        @endif
     @endif
+
 </head>
 <body class="text-gray-200 font-sans">
 

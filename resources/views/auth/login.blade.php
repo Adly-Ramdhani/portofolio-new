@@ -2,13 +2,21 @@
 <html>
 <head>
     <title>Login</title>
+    @php
+        $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
+        $loginCss = $manifest['resources/css/login.css']['file'] ?? null;
+    @endphp
+
     @if (app()->environment('local'))
         {{-- Local pakai Vite dev server --}}
         @vite(['resources/css/login.css'])
     @else
         {{-- Production pakai hasil build static --}}
-        <link rel="stylesheet" href="{{ asset('build/css/login-EErN5V6G.css') }}">
+        @if ($loginCss)
+            <link rel="stylesheet" href="{{ asset('build/' . $loginCss) }}">
+        @endif
     @endif
+
 </head>
 <body class="bg-gray-100 flex justify-center items-center min-h-screen">
 
