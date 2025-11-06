@@ -6,14 +6,15 @@
     }
   },
   "routes": [
-    { "src": "/(.*)", "dest": "/public/build/$1" }
+    { "src": "^/build/(.*)$", "dest": "/public/build/$1" },
+    { "src": "^(?!/build/).*", "dest": "/api/index.php" }
   ],
-  "buildCommand": " npm install && npm run build ",
+  "buildCommand": "npm install && npm run build",
   "outputDirectory": "public",
   "env": {
     "APP_ENV": "production",
     "APP_DEBUG": "false",
-    "APP_URL": "https://www.adly.my.id/",
+    "APP_URL": "https://www.adly.my.id",
     "APP_KEY": "base64:WosRJO97r2z0Uwh10fg8AbYYs/9eNKhC4zJQVh8W6KA=",
 
     "DB_CONNECTION": "pgsql",
