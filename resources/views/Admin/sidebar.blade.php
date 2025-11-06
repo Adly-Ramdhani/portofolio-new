@@ -15,7 +15,7 @@
             <a href="{{ route('admin.sertifikat') }}" class="flex items-center px-6 py-3 hover:bg-[#334155] transition-colors">
                 👥 <span class="ml-3">Sertifikat</span>
             </a>
-        <a href="{{ route('admin.projek') }}" class="flex items-center px-6 py-3 hover:bg-[#334155] transition-colors">
+        <a href="{{ route('admin.project') }}" class="flex items-center px-6 py-3 hover:bg-[#334155] transition-colors">
             <span class="mr-2">📦</span> <span>Projek</span>
         </a>
 
