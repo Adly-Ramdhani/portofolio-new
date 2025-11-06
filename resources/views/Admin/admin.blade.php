@@ -11,8 +11,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @else
         {{-- Production pakai hasil build static --}}
-        <link rel="stylesheet" href="{{ asset('build/assets/app-B5ErDcyM.css') }}">
-        <script type="module" src="{{ asset('build/assets/app-Bj43h_rG.js') }}"></script>
+        <link rel="stylesheet" href="{{ asset('build/assets/admin.css') }}">
     @endif
 </head>
 <body class="text-gray-200 font-sans">
