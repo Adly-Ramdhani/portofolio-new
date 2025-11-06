@@ -1,4 +1,4 @@
-@extends('Admin.admin')
+@extends('admin.admin')
 
 @section('title', 'Sertifikat')
 
