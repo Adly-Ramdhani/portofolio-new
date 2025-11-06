@@ -21,7 +21,7 @@ class ProjectController extends Controller
             $totalProjects = Project::count();
             $totalCertificates = Certificate::count();
 
-            return view('admin.projects.index', compact('projects', 'totalProjects', 'totalCertificates'));
+            return view('Admin.projects.index', compact('projects', 'totalProjects', 'totalCertificates'));
     }
 
 

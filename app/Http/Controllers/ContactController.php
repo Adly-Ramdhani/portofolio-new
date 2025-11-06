@@ -22,7 +22,7 @@ class ContactController extends Controller
             $totalProjects = Project::count();
             $totalCertificates = Certificate::count();
 
-            return view('admin.index', compact( 'totalProjects', 'totalCertificates'));
+            return view('Admin.index', compact( 'totalProjects', 'totalCertificates'));
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
