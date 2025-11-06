@@ -18,7 +18,7 @@ class CertificateController extends Controller
     public function index()
     {
         $certificates = Certificate::latest()->get(); // ambil semua sertifikat terbaru
-        return view('Admin.sertifikat', compact('certificates'));
+        return view('admin.sertifikat', compact('certificates'));
     }
 
 
