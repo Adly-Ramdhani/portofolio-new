@@ -18,7 +18,7 @@
 <body class="text-gray-200 font-sans">
 
     <!-- SIDEBAR -->
-    @include('Admin.sidebar')
+    @include('admin.sidebar')
 
     <!-- TOGGLE BUTTON (Mobile) -->
     <button id="openSidebar"
