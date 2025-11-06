@@ -7,14 +7,6 @@
       "app.css"
     ]
   },
-  "resources/images/adly.JPG": {
-    "file": "assets/adly-DdgmMZId.JPG",
-    "src": "resources/images/adly.JPG"
-  },
-  "resources/images/icoon1.png": {
-    "file": "assets/icoon1-QFUXwTOH.png",
-    "src": "resources/images/icoon1.png"
-  },
   "resources/js/app.js": {
     "file": "assets/app-Bj43h_rG.js",
     "name": "app",

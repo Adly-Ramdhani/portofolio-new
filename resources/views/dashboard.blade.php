@@ -111,7 +111,7 @@
        transition: opacity .42s ease, transform .42s ease;
      }
     </style>
-    <link rel="icon" type="image/png" href="{{ Vite::asset('images/icoon1.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/icoon1.png') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
@@ -124,7 +124,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-transparent py-3">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center gap-2" href="#home">
-      <img src="{{ Vite::asset('resources/images/icoon1.png') }}" alt="logo" style="width:40px;height:40px;object-fit:cover;border-radius:.5rem;">
+      <img src="{{ asset('resources/images/icoon1.png') }}" alt="logo" style="width:40px;height:40px;object-fit:cover;border-radius:.5rem;">
       <span class="fw-bold" style="background:linear-gradient(90deg,#7c4dff,#1e90ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
         Adly Ramdhani
       </span>
@@ -174,7 +174,7 @@
           <!-- RIGHT IMAGE -->
           <div class="col-lg-5 col-md-12 col-12 d-flex align-items-start justify-content-end pe-lg-5 pe-3">
              <div class="about-image svg text-center text-lg-end">
-               <img src="{{ Vite::asset('resources/images/icoon1.png') }}" class="img-fluid" alt="svg image">
+               <img src="{{ asset('resources/images/icoon1.png') }}" class="img-fluid" alt="svg image">
  
              </div>
            </div>
@@ -195,7 +195,7 @@
       <div class="row align-items-center">
         <div class="col-lg-5 col-md-8 col-sm-10 text-center text-lg-start mx-auto mb-4 mb-lg-0">
           <div class="about_img" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="1000">
-            <img class="profile-photo" src="{{ Vite::asset('resources/images/adly.JPG') }}" alt="profile">
+            <img class="profile-photo" src="{{ asset('resources/images/adly.JPG') }}" alt="profile">
           </div>
         </div>
 
@@ -380,7 +380,7 @@
       <!-- Kiri: Profil + Navigasi -->
       <div class="col-md-6 d-flex flex-column flex-md-row align-items-start gap-4">
         <div class="d-flex align-items-center gap-2">
-          <img src="{{ Vite::asset('resources/images/icoon1.png') }}" alt="logo"
+          <img src="{{ asset('resources/images/icoon1.png') }}" alt="logo"
                style="width:40px;height:40px;object-fit:cover;border-radius:.5rem;">
           <div>
             <div class="fw-bold"
