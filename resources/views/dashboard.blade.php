@@ -389,9 +389,8 @@
         <ul class="list-unstyled mt-3 mt-md-0 ms-md-4">
           <li><a href="#home" class="text-decoration-none text-light d-block mb-1">Home</a></li>
           <li><a href="#about" class="text-decoration-none text-light d-block mb-1">About</a></li>
-          <li><a href="#resume" class="text-decoration-none text-light d-block mb-1">Resume</a></li>
-          <li><a href="#project" class="text-decoration-none text-light d-block mb-1">Projects</a></li>
-          <li><a href="#contact" class="text-decoration-none text-light d-block">Contact</a></li>
+          <li><a href="#tech" class="text-decoration-none text-light d-block mb-1">Tech</a></li>
+          <li><a href="#projects" class="text-decoration-none text-light d-block mb-1">Projects</a></li>
         </ul>
       </div>
 
