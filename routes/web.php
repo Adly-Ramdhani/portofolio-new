@@ -23,7 +23,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
    Route::get('/dashboard', [ContactController::class, 'index'])->name('admin.dashboard');
 
     // Project
-    Route::get('/project', [ProjectController::class, 'index'])->name('admin.project');Route::get('/projek', [ProjectController::class, 'index'])->name('admin.projek');
+    Route::get('/project', [ProjectController::class, 'index'])->name('admin.project');
     Route::post('/projek', [ProjectController::class, 'store'])->name('projects.store');
     Route::get('/projek/edit/{id}', [ProjectController::class, 'edit'])->name('projects.edit');
     Route::put('/projek/{id}', [ProjectController::class, 'update'])->name('projects.update');  
