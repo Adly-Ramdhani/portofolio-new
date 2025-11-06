@@ -20,7 +20,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // Routes untuk admin yang harus login
 Route::middleware(['auth'])->prefix('admin')->group(function () {
 
-   Route::get('/dashboard', [ContactController::class, 'index'])->name('admin.dashboard');
+    Route::get('/dashboard', [ContactController::class, 'index'])->name('admin.dashboard');
 
     // Project
     Route::get('/project', [ProjectController::class, 'index'])->name('admin.project');
