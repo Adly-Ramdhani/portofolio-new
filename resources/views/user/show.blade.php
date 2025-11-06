@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    @vite(['resources/css/app.css'])
+   @if (app()->environment('local'))
+    {{-- Local pakai Vite dev server --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+  @else
+      {{-- Production pakai hasil build static --}}
+      <link rel="stylesheet" href="{{ asset('build/assets/app-B5ErDcyM.css') }}">
+      <script type="module" src="{{ asset('build/assets/app-Bj43h_rG.js') }}"></script>
+  @endif
     <link rel="icon" type="image/png" href="{{ Vite::asset('resources/images/icoon1.png') }}">
     <title>Adly | Portofolio</title>
     <title>View</title>
