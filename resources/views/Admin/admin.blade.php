@@ -11,7 +11,7 @@
         @vite(['resources/css/admin.css'])
     @else
         {{-- Production pakai hasil build static --}}
-        <link rel="stylesheet" href="{{ asset('resources/css/admin.css') }}">
+       <link rel="stylesheet" href="{{ asset('build/assets/admin-DX5FUotB.css') }}">
     @endif
 </head>
 <body class="text-gray-200 font-sans">

@@ -7,7 +7,7 @@
         @vite(['resources/css/login.css'])
     @else
         {{-- Production pakai hasil build static --}}
-        <link rel="stylesheet" href="{{ asset('resources/css/login.css') }}">
+        <link rel="stylesheet" href="{{ asset('build/css/login-EErN5V6G.css') }}">
     @endif
 </head>
 <body class="bg-gray-100 flex justify-center items-center min-h-screen">
