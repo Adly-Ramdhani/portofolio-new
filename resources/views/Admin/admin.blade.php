@@ -8,10 +8,10 @@
     {{-- Local pakai Vite dev server --}}
    @if (app()->environment('local'))
         {{-- Local pakai Vite dev server --}}
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite(['resources/css/admin.css'])
     @else
         {{-- Production pakai hasil build static --}}
-        <link rel="stylesheet" href="{{ asset('build/assets/admin.css') }}">
+        <link rel="stylesheet" href="{{ asset('resources/css/admin.css') }}">
     @endif
 </head>
 <body class="text-gray-200 font-sans">
