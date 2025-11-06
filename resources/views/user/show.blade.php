@@ -14,7 +14,6 @@
         <script type="module" src="{{ asset('build/assets/app-Bj43h_rG.js') }}"></script>
     @endif
 
-    <link rel="icon" type="image/png" href="{{ asset('images/icoon1.png') }}">
     <title>Adly | Portofolio</title>
     <title>View</title>
 </head>

@@ -6,7 +6,14 @@
     <title>Admin Dashboard</title>
     
     {{-- Local pakai Vite dev server --}}
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+   @if (app()->environment('local'))
+        {{-- Local pakai Vite dev server --}}
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @else
+        {{-- Production pakai hasil build static --}}
+        <link rel="stylesheet" href="{{ asset('build/assets/app-B5ErDcyM.css') }}">
+        <script type="module" src="{{ asset('build/assets/app-Bj43h_rG.js') }}"></script>
+    @endif
   @else
       {{-- Production pakai hasil build static --}}
       <link rel="stylesheet" href="{{ asset('build/assets/app-B5ErDcyM.css') }}">
