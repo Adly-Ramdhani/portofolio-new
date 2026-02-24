@@ -11,8 +11,8 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
   @else
       {{-- Production pakai hasil build static --}}
-      <link rel="stylesheet" href="{{ asset('build/assets/app-B5ErDcyM.css') }}">
-      <script type="module" src="{{ asset('build/assets/app-Bj43h_rG.js') }}"></script>
+         <link rel="stylesheet" href="{{ asset('build/assets/app-B5ErDcyM.css') }}">
+    <script type="module" src="{{ asset('build/assets/app-Bj43h_rG.js') }}"></script>
   @endif
     <style>
       /* Force About section visible on small devices and prevent hero from covering it */
@@ -239,6 +239,31 @@
                   <p>Merancang dan mengembangkan API serta struktur basis data untuk mendukung
                     kebutuhan sistem. Bertanggung jawab pada sisi server, pengelolaan data, dan integrasi
                     dengan frontend melalui layanan RESTful API.</p>
+                </div>
+              </div>
+            </div>
+
+               <div class="timeline">
+              <div class="timeline-wrapper" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+                <div class="timeline-yy">
+                  <span>2025</span>
+                </div>
+                <div class="timeline-info">
+                  <h3><span>FullStack Developer</span><small>Freelanc</small></h3>
+                  <p>Membangun website barbershop full-stack  menggunakan Laravel (Blade, PHP, MySQL) dengan fitur reservasi online, manajemen jadwal, dan histori transaksi pelanggan..</p>
+                </div>
+              </div>
+            </div>
+
+              <div class="timeline">
+              <div class="timeline-wrapper" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+                <div class="timeline-yy">
+                  <span>2025</span>
+                </div>
+                <div class="timeline-info">
+                  <h3><span>FullStack Developer</span><small>PT Global Indo Asets</small></h3>
+                  <p>Saya bekerja sebagai Full-Stack Developer yang bertanggung jawab mengembangkan dan mengelola aplikasi frontend dan backend secara menyeluruh. Saya membangun antarmuka pengguna yang responsif dan mudah digunakan, serta mengembangkan sistem,
+                     database, dan API agar aplikasi berjalan stabil, aman, dan efisien.</p>
                 </div>
               </div>
             </div>
