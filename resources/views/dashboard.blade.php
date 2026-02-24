@@ -249,7 +249,7 @@
                   <span>2025</span>
                 </div>
                 <div class="timeline-info">
-                  <h3><span>FullStack Developer</span><small>Freelanc</small></h3>
+                  <h3><span>FullStack Developer</span><small>Freelance</small></h3>
                   <p>Membangun website barbershop full-stack  menggunakan Laravel (Blade, PHP, MySQL) dengan fitur reservasi online, manajemen jadwal, dan histori transaksi pelanggan..</p>
                 </div>
               </div>
@@ -262,8 +262,9 @@
                 </div>
                 <div class="timeline-info">
                   <h3><span>FullStack Developer</span><small>PT Global Indo Asets</small></h3>
-                  <p>Saya bekerja sebagai Full-Stack Developer yang bertanggung jawab mengembangkan dan mengelola aplikasi frontend dan backend secara menyeluruh. Saya membangun antarmuka pengguna yang responsif dan mudah digunakan, serta mengembangkan sistem,
-                     database, dan API agar aplikasi berjalan stabil, aman, dan efisien.</p>
+                  <p>Saya bekerja sebagai Full-Stack Developer yang mengembangkan dan mengelola aplikasi frontend dan backend, 
+                    membangun antarmuka responsif, serta merancang sistem backend, database, dan API. Saya bertanggung jawab dalam pengembangan fitur invoice yang terintegrasi di web chatbox, termasuk pembuatan dan pengelolaan data, perhitungan otomatis,
+                     integrasi pembayaran, serta komunikasi real-time antar pengguna.</p>
                 </div>
               </div>
             </div>
