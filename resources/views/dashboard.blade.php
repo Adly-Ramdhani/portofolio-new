@@ -205,9 +205,9 @@
               <span>Hallo, saya Adly Ramdhani</span>
             </h3>
             <p class="description" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">
-              Seorang lulusan jurusan Pengembangan Perangkat Lunak dan Gim yang tertarik dalam pengembangan Fullstack. 
-              Saya berfokus pada membangun sistem yang andal dan efisien, serta selalu berusaha memberikan solusi terbaik
-              dalam setiap proyek.
+             I am a student at IPB University with a strong interest in Information Technology, particularly programming and software development. I am passionate about continuous learning, developing my technical skills, and gaining new experiences in the technology field.
+              I am interested in developing my skills in web development, programming, databases, and problem-solving. I have worked on various projects to improve my ability to build web-based applications and systems.
+              In the future, I aim to continuously improve my skills, gain valuable experience, and build a professional career in software development and Information Technology.
             </p>
             <br>
           <a class="primary_btn appear-animation d-flex justify-content-center align-items-center mx-auto mx-lg-0"
@@ -273,6 +273,17 @@
           <!-- Educations -->
           <div class="col-lg-6 col-12" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
             <h2 class="mb-4 mobile-mt-2">Educations</h2>
+             <div class="timeline">
+              <div class="timeline-wrapper" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                <div class="timeline-yr">
+                  <span>2026-Sekarang</span>
+                </div>
+                <div class="timeline-info">
+                  <h3><span>IPB University</span></h3>
+                  <p>Teknologi Rekayasa Perangkat Lunak</p>
+                </div>
+              </div>
+            </div>
             <div class="timeline">
               <div class="timeline-wrapper" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
                 <div class="timeline-yr">

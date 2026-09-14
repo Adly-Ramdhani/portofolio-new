@@ -182,7 +182,7 @@ class ProjectController extends Controller
 
             return to_route('admin.projek')->with('success', 'Projek berhasil dihapus dari database & Cloudinary.');
         } catch (Exception $e) {
-            return to_route('admin.projek')->with('error', 'Gagal menghapus projek: ' . $e->getMessage());
+            return to_route('admin.project')->with('error', 'Gagal menghapus projek: ' . $e->getMessage());
         }
     }
 

@@ -594,17 +594,7 @@ body.is-ready .about .about-image img {
   align-items: flex-start;
   margin-bottom: 1.25rem;
 }
-.timeline-yy,
-.timeline-yr {
-  min-width: 90px;
-  text-align: center;
-  background: linear-gradient(180deg,#eef2ff 0%, #e6dcff 100%);
-  color:#2b2166;
-  border-radius: .6rem;
-  padding: .5rem .4rem;
-  font-weight: 700;
-  box-shadow: 0 6px 18px rgba(43,33,102,0.06);
-}
+
 .timeline-info {
   background: rgba(255, 255, 255, 0.05);
   padding: 20px;
