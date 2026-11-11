@@ -1,30 +1,33 @@
 {
   "resources/css/admin.css": {
-    "file": "assets/admin-DX5FUotB.css",
+    "file": "assets/admin-D_2Wc8et.css",
     "src": "resources/css/admin.css",
     "isEntry": true,
+    "name": "admin",
     "names": [
       "admin.css"
     ]
   },
   "resources/css/app.css": {
-    "file": "assets/app-B5ErDcyM.css",
+    "file": "assets/app-Dy4_qUP5.css",
     "src": "resources/css/app.css",
     "isEntry": true,
+    "name": "app",
     "names": [
       "app.css"
     ]
   },
   "resources/css/login.css": {
-    "file": "assets/login-EErN5V6G.css",
+    "file": "assets/login-DqP-njLM.css",
     "src": "resources/css/login.css",
     "isEntry": true,
+    "name": "login",
     "names": [
       "login.css"
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-Bj43h_rG.js",
+    "file": "assets/app-Bwn9szyo.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true
