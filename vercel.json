@@ -15,16 +15,17 @@
   "env": {
     "APP_ENV": "production",
     "APP_DEBUG": "true",
-    "APP_URL": "https://www.adly.my.id",
+    "APP_URL": "https://portofolio-new-mu-ebon.vercel.app/",
     "APP_KEY": "base64:WosRJO97r2z0Uwh10fg8AbYYs/9eNKhC4zJQVh8W6KA=",
 
     "DB_CONNECTION": "pgsql",
     "DB_HOST": "t2buyw.h.filess.io",
     "DB_PORT": "5434",
-    "DB_DATABASE": "portofolio_swingsoon",
-    "DB_USERNAME": "portofolio_swingsoon",
-    "DB_PASSWORD": "e713b530c7c7e6b9c7136afa1cc64aa2a486067a",
+    "DB_DATABASE": "portofolio_pinkcoffee",
+    "DB_USERNAME": "portofolio_pinkcoffee",
+    "DB_PASSWORD": "7f7359a50549a6e54b1620666bebac64d9bc261d",
 
+  
     "APP_CONFIG_CACHE": "/tmp/config.php",
     "APP_EVENTS_CACHE": "/tmp/events.php",
     "APP_PACKAGES_CACHE": "/tmp/packages.php",
