@@ -6,12 +6,13 @@
     }
   },
   "routes": [
-    { "src": "^/build/(.*)$", "dest": "/build/$1" },
-     { "src": "^/images/(.*)$", "dest": "/images/$1" },
-    { "src": "^(?!/build/).*", "dest": "/api/index.php" }
+    { "src": "/build/(.*)", "dest": "/public/build/$1" },
+    { "src": "/images/(.*)", "dest": "/public/images/$1" },
+    { "src": "/favicon.ico", "dest": "/public/favicon.ico" },
+    { "src": "/robots.txt", "dest": "/public/robots.txt" },
+    { "src": "/(.*)", "dest": "/api/index.php" }
   ],
   "buildCommand": "npm install && npm run build",
-  "outputDirectory": "public",
   "env": {
     "APP_ENV": "production",
     "APP_DEBUG": "true",
@@ -25,7 +26,6 @@
     "DB_USERNAME": "postgres.cqdmeegbsakiqknfcptj",
     "DB_PASSWORD": "TRPL#Adly26",
 
-  
     "APP_CONFIG_CACHE": "/tmp/config.php",
     "APP_EVENTS_CACHE": "/tmp/events.php",
     "APP_PACKAGES_CACHE": "/tmp/packages.php",
