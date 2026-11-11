@@ -19,11 +19,11 @@
     "APP_KEY": "base64:WosRJO97r2z0Uwh10fg8AbYYs/9eNKhC4zJQVh8W6KA=",
 
     "DB_CONNECTION": "pgsql",
-    "DB_HOST": "t2buyw.h.filess.io",
-    "DB_PORT": "5434",
-    "DB_DATABASE": "portofolio_pinkcoffee",
-    "DB_USERNAME": "portofolio_pinkcoffee",
-    "DB_PASSWORD": "7f7359a50549a6e54b1620666bebac64d9bc261d",
+    "DB_HOST": "aws-0-ap-northeast-1.pooler.supabase.com",
+    "DB_PORT": "5432",
+    "DB_DATABASE": "postgres",
+    "DB_USERNAME": "postgres.cqdmeegbsakiqknfcptj",
+    "DB_PASSWORD": "TRPL#Adly26",
 
   
     "APP_CONFIG_CACHE": "/tmp/config.php",
